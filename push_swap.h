@@ -33,4 +33,13 @@ double  compute_disorder(t_node *a);
 int get_stack_size(t_node *stack);
 void    assign_index(t_node *a);
 void    free_stack(t_node **stack);
+void	sort_simple(t_node **a, t_node **b);
+void	sort_medium(t_node **a, t_node **b);
+void	sort_complex(t_node **a, t_node **b);
+void	sort_adaptive(t_node **a, t_node **b, double disorder);
+static void rotate(t_node **stack);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+
 #endif
