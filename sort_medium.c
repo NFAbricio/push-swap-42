@@ -10,6 +10,16 @@ static int  ft_sqrt(int number)
     return (i - 1);
 }
 
+static void verify_max_pos(t_node **b, int max_pos, int size, int max_idx)
+{
+    if (max_pos <= size / 2)
+        while ((*b)->index != max_idx)
+        rb(b);
+    else
+        while ((*b)->index != max_idx)
+        rrb(b);
+}
+
 static void push_back_to_a(t_node **a, t_node **b)
 {
     int max_idx;
@@ -31,15 +41,10 @@ static void push_back_to_a(t_node **a, t_node **b)
                 max_idx = tmp->index;
                 max_pos = i;
             }
-            tmp = tmp->index;
+            tmp = tmp->next;
             i++;
         }
-        if (max_pos <= size / 2)
-            while ((*b)->index != max_idx)
-                rb(b);
-        else
-            while ((*b)->index != max_idx)
-                rrb(b);
+        verify_max_pos(b, max_pos, size, max_idx);
         pa(a, b);
     }
 }
