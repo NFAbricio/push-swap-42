@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:40 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:12:16 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long    ft_atol(const char *str)
@@ -22,7 +34,6 @@ long    ft_atol(const char *str)
     }
     return (res * sign);
 }
-
 static void append_node(t_node **stack, int value)
 {
     t_node  *new_node;
@@ -30,7 +41,7 @@ static void append_node(t_node **stack, int value)
 
     new_node = malloc(sizeof(t_node));
     if(!new_node)
-        ft_error();
+        ft_error(stack);
     new_node->value = value;
     new_node->next = NULL;
     if(!(*stack))
@@ -43,7 +54,6 @@ static void append_node(t_node **stack, int value)
         last = last->next;
     last->next = new_node;
 }
-
 void    init_stack_a(t_node **a, char **argv)
 {
     long    n;
@@ -53,12 +63,12 @@ void    init_stack_a(t_node **a, char **argv)
     while(argv[i])
     {
         if(!check_syntax(argv[i]))
-            ft_error();
+            ft_error(a);
         n = ft_atol(argv[i]);
         if (n > INT_MAX || n < INT_MIN)
-            ft_error();
+            ft_error(a);
         if (check_duplicates(*a, (int)n))
-            ft_error();
+            ft_error(a);
         append_node(a, (int)n);
             i++;
     }

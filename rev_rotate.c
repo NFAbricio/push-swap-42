@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:20 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:06:41 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	rev_rotate(t_node **stack)
@@ -18,19 +30,16 @@ static void	rev_rotate(t_node **stack)
 	last->next = *stack;
 	*stack = last;
 }
-
 void	rra(t_node **a)
 {
 	rev_rotate(a);
 	write(1, "rra\n", 4);
 }
-
 void	rrb(t_node **b)
 {
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
 }
-
 void	rrr(t_node **a, t_node **b)
 {
 	rev_rotate(a);

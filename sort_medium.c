@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_medium.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:30 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:06:59 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int  ft_sqrt(int number)
@@ -9,7 +21,6 @@ static int  ft_sqrt(int number)
         i++;
     return (i - 1);
 }
-
 static void verify_max_pos(t_node **b, int max_pos, int size, int max_idx)
 {
     if (max_pos <= size / 2)
@@ -19,7 +30,6 @@ static void verify_max_pos(t_node **b, int max_pos, int size, int max_idx)
         while ((*b)->index != max_idx)
         rrb(b);
 }
-
 static void push_back_to_a(t_node **a, t_node **b)
 {
     int max_idx;
@@ -48,7 +58,6 @@ static void push_back_to_a(t_node **a, t_node **b)
         pa(a, b);
     }
 }
-
 void    sort_medium(t_node **a, t_node**b)
 {
     int chunk_size;

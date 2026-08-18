@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:07 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:12:53 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    ft_error(void)
+void    ft_error(t_node **stack)
 {
+    free_stack(stack);
     write(2, "Error\n", 6);
     exit(1);
 }
-
 int check_syntax(char *str)
 {
     int i;
@@ -23,7 +35,6 @@ int check_syntax(char *str)
     }
     return (1);
 }
-
 int check_duplicates(t_node *a, int n)
 {
     if (!a)

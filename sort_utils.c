@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:37 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:07:23 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int get_stack_size(t_node *stack)
@@ -12,7 +24,6 @@ int get_stack_size(t_node *stack)
     }
     return (size);
 }
-
 void    assign_index(t_node *a)
 {
     t_node  *ptr1;
@@ -32,5 +43,16 @@ void    assign_index(t_node *a)
         }
         ptr1->index = index;
         ptr1 = ptr1->next;
+    }
+}
+void    free_stack(t_node **stack)
+{
+    t_node *tmp;
+
+    while(*stack)
+    {
+        tmp = (*stack)->next;
+        free(*stack);
+        stack = tmp;
     }
 }

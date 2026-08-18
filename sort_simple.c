@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 16:58:34 by casampai          #+#    #+#             */
+/*   Updated: 2026/08/18 17:07:07 by casampai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int  get_min_index_pos(t_node *a, int *min_idx)
@@ -24,7 +36,6 @@ static int  get_min_index_pos(t_node *a, int *min_idx)
     }
     return (min_pos);
 }
-
 void    sort_simple(t_node **a, t_node **b)
 {
     int size;
