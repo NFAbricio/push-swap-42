@@ -12,51 +12,81 @@
 
 #include "push_swap.h"
 
-static int  get_min_index_pos(t_node *a, int *min_idx)
+static int  get_insert_pos(t_node *b, int index)
 {
     t_node  *tmp;
-    int min_pos;
-    int i;
+    int pos;
+    int target;
+    int closest;
 
-    tmp = a;
-    *min_idx = tmp->index;
-    min_pos = 0;
-    i = 0;
-    while(tmp)
+    tmp = b;
+    pos = 0;
+    target = 0;
+    closest = -1;
+    while (tmp)
     {
-        if (tmp->index < *min_idx)
+        if (tmp->index <  index  && tmp->index > closest)
         {
-            *min_idx = tmp->index;
-            min_pos = i;
+            closest = tmp->index;
+            target = pos;
         }
         tmp = tmp->next;
-        i++;
+        pos++;
     }
-    return (min_pos);
+    if (closest == -1)
+    {
+        tmp = b;
+        pos = 0;
+        while (tmp)
+        {
+            if (tmp->index > closest)
+            {
+                closest = tmp->index;
+                target = pos;
+            }
+            tmp = tmp->next;
+            pos++;
+        }
+    }
+    return (target);
 }
+
 void    sort_simple(t_node **a, t_node **b)
 {
-    int size;
-    int min_pos;
-    int min_idx;
+    int	pos;
+	int	size;
 
-    size = get_stack_size(*a);
-    while (size > 0)
-    {
-        min_pos = get_min_index_pos(*a, &min_idx);
-        if (min_pos <= size / 2)
-        {
-            while ((*a)->index != min_idx)
-                ra(a);
-        }
-        else
-        {
-            while ((*a)->index != min_idx)
-                rra(a);
-        }
-        pb(a, b);
-        size--;
-    }
-    while (*b)
-        pa(a, b);
+	while (*a)
+	{
+		if (!*b)
+			pb(a, b);
+		else
+		{
+			pos = get_insert_pos(*b, (*a)->index);
+			size = get_stack_size(*b);
+			if (pos <= size / 2)
+				while (pos-- > 0)
+					rb(b);
+			else
+			{
+				pos = size - pos;
+				while (pos-- > 0)
+					rrb(b);
+			}
+			pb(a, b);
+		}
+	}
+	pos = get_insert_pos(*b, get_stack_size(*b) + 1);
+	size = get_stack_size(*b);
+	if (pos <= size / 2)
+		while (pos-- > 0)
+			rb(b);
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rrb(b);
+	}
+	while (*b)
+		pa(a, b);
 }
