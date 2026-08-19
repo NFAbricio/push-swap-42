@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 22:33:42 by casampai, f       #+#    #+#             */
+/*   Updated: 2026/08/19 07:12:58 by casampai, f      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void    free_stack(t_node **stack)
@@ -12,4 +24,13 @@ void    free_stack(t_node **stack)
         free(*stack);
         *stack = tmp;
     }
+}
+int str_cmp(const char *s1, const char *s2)
+{
+    int i;
+
+    i = 0;
+    while(s1[i] && (s1[i] == s2[i]))
+        i++;
+    return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

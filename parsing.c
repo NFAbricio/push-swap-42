@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:07 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 17:12:53 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/19 07:24:52 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,23 @@ int check_duplicates(t_node *a, int n)
         a = a->next;
     }
     return(0);
+}
+type_sort get_stategy_selector(char **argv)
+{
+    type_sort sort;
+    int i;
+    
+    sort = adaptive;
+    i = 0;
+    while(argv[i])
+    {
+        if(str_cmp(argv[i], "--simple") == 0)
+            sort = simple;
+        if(str_cmp(argv[i], "--medium") == 0)
+            sort = medium;
+        if(str_cmp(argv[i], "--complex") == 0)
+            sort = complex;
+        i++;
+    }
+    return(sort);
 }

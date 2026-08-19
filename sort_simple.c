@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:34 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 17:07:07 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/19 07:16:18 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 static int  get_min_index_pos(t_node *a, int *min_idx)
 {
     t_node  *tmp;
-    int pos;
     int min_pos;
     int i;
 
     tmp = a;
     *min_idx = tmp->index;
-    pos = 0;
     min_pos = 0;
     i = 0;
     while(tmp)
