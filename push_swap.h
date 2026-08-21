@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:12 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/19 07:23:17 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/21 17:53:36 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ typedef struct s_node
     int index;
     struct  s_node  *next;
 } t_node;
-
-typedef enum Strategies_Sort
-{
-    adaptive,
-    simple,
-    medium,
-    complex
-} type_sort;
 
 void    ft_error(t_node **stack);
 long    ft_atol(const char *str);
@@ -56,6 +48,6 @@ void	rr(t_node **a, t_node **b);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
-type_sort get_stategy_selector(char **argv);
+int	get_stategy_selector(char **argv, t_node **stack);
 int str_cmp(const char *s1, const char *s2);
 #endif

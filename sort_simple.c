@@ -1,92 +1,50 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_simple.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 16:58:34 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/19 07:16:18 by casampai, f      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
-static int  get_insert_pos(t_node *b, int index)
+static int  get_min_index_pos(t_node *a, int *min_idx)
 {
     t_node  *tmp;
-    int pos;
-    int target;
-    int closest;
+    int min_pos;
+    int i;
 
-    tmp = b;
-    pos = 0;
-    target = 0;
-    closest = -1;
-    while (tmp)
+    tmp = a;
+    *min_idx = tmp->index;
+    min_pos = 0;
+    i = 0;
+    while(tmp)
     {
-        if (tmp->index <  index  && tmp->index > closest)
+        if (tmp->index < *min_idx)
         {
-            closest = tmp->index;
-            target = pos;
+            *min_idx = tmp->index;
+            min_pos = i;
         }
         tmp = tmp->next;
-        pos++;
+        i++;
     }
-    if (closest == -1)
-    {
-        tmp = b;
-        pos = 0;
-        while (tmp)
-        {
-            if (tmp->index > closest)
-            {
-                closest = tmp->index;
-                target = pos;
-            }
-            tmp = tmp->next;
-            pos++;
-        }
-    }
-    return (target);
+    return (min_pos);
 }
-
 void    sort_simple(t_node **a, t_node **b)
 {
-    int	pos;
-	int	size;
+    int size;
+    int min_pos;
+    int min_idx;
 
-	while (*a)
-	{
-		if (!*b)
-			pb(a, b);
-		else
-		{
-			pos = get_insert_pos(*b, (*a)->index);
-			size = get_stack_size(*b);
-			if (pos <= size / 2)
-				while (pos-- > 0)
-					rb(b);
-			else
-			{
-				pos = size - pos;
-				while (pos-- > 0)
-					rrb(b);
-			}
-			pb(a, b);
-		}
-	}
-	pos = get_insert_pos(*b, get_stack_size(*b) + 1);
-	size = get_stack_size(*b);
-	if (pos <= size / 2)
-		while (pos-- > 0)
-			rb(b);
-	else
-	{
-		pos = size - pos;
-		while (pos-- > 0)
-			rrb(b);
-	}
-	while (*b)
-		pa(a, b);
+    size = get_stack_size(*a);
+    while (size > 0)
+    {
+        min_pos = get_min_index_pos(*a, &min_idx);
+        if (min_pos <= size / 2)
+        {
+            while ((*a)->index != min_idx)
+                ra(a);
+        }
+        else
+        {
+            while ((*a)->index != min_idx)
+                rra(a);
+        }
+        pb(a, b);
+        size--;
+    }
+    while (*b)
+        pa(a, b);
 }
