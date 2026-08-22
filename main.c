@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:59:38 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/21 17:57:20 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/22 15:48:20 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-
+	printf("%s | %s", argv[1], argv[2]);
 	if (argc < 2)
 		exit(1);
 	init_stack_a(&stack_a, argv);

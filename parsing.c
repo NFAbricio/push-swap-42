@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:07 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/21 18:09:17 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/22 15:35:46 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	check_syntax(char *str)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (0);
+		{
+			if (!(str[i] == ' '))
+				return (0);
+		}
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:40 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/21 18:24:14 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/22 15:21:16 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,21 @@ void    init_stack_a(t_node **a, char **argv)
 	while (argv[i])
 	{
 		if (!check_syntax(argv[i]))
+		{
+			printf("sintaxe");
 			ft_error(a);
+		}
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
+		{
+			printf("max");
 			ft_error(a);
+		}
 		if (check_duplicates(*a, (int)n))
+		{
+			printf("dupl");
 			ft_error(a);
+		}
 		append_node(a, (int)n);
 			i++;
 	}
