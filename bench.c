@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 16:58:16 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/24 07:14:29 by casampai, f      ###   ########.fr       */
+/*   Created: 2026/08/24 05:49:46 by casampai, f       #+#    #+#             */
+/*   Updated: 2026/08/24 07:25:38 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void push(t_node **src, t_node **dest)
+static void put_str(char *str)
 {
-    t_node  *temp;
+    int count;
+    
+    count = 0;
+    while(*(str + count))
+        count++;
+    write(2, str, count);
+}
 
-    if (!*src)
-        return ;
-    temp = *src;
-    *src = (*src)->next;
-    temp->next = *dest;
-    *dest = temp;
-}
-void    pa(t_current_context *context)
+void    show_bench(t_current_context context)
 {
-    push(&context->stack_b, &context->stack_a);
-    write(1, "pa\n", 3);  
-}
-void    pb(t_current_context *context)
-{
-    push(&context->stack_a, &context->stack_b);
-    write(1, "pb\n", 3);
+    
 }

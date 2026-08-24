@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:24 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 22:33:02 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/24 07:13:38 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,25 @@ static void rotate(t_node **stack)
     first->next = NULL;
     last->next = first;
 }
-void	ra(t_node **a)
+void	ra(t_current_context *context)
 {
-	rotate(a);
+	rotate(&context->stack_a);
+    context->total_operations += 1;
+    context->count_each_operation->ra += 1;
 	write(1, "ra\n", 3);
 }
-void	rb(t_node **b)
+void	rb(t_current_context *context)
 {
-	rotate(b);
+	rotate(&context->stack_b);
+    context->total_operations += 1;
+    context->count_each_operation->rb += 1;
 	write(1, "rb\n", 3);
 }
-void	rr(t_node **a, t_node **b)
+void	rr(t_current_context *context)
 {
-	rotate(a);
-	rotate(b);
+	rotate(&context->stack_a);
+	rotate(&context->stack_b);
+    context->total_operations += 1;
+    context->count_each_operation->rr += 1;
 	write(1, "rr\n", 3);
 }

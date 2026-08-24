@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:59:38 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/22 15:48:20 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/24 07:15:12 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,31 @@
 
 int main(int argc, char **argv)
 {
-	t_node		*stack_a;
-	t_node		*stack_b;
-	int	sort;
+	t_current_context	current_context;
+	t_count_operations	count;
+	int					sort;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	printf("%s | %s", argv[1], argv[2]);
+	current_context.stack_a = NULL;
+	current_context.stack_b = NULL;
+	current_context.total_operations = 0;
+	current_context.count_each_operation = &count;
+	count = (t_count_operations){0};
 	if (argc < 2)
 		exit(1);
-	init_stack_a(&stack_a, argv);
-	if (!stack_a)
+	init_stack_a(&current_context.stack_a, argv);
+	if (!current_context.stack_a)
 		return (0);
-	assign_index(stack_a);
-	sort = get_stategy_selector(argv, &stack_a);
+	assign_index(current_context.stack_a);
+	sort = get_stategy_selector(argv, &current_context.stack_a);
 	if (sort == 1)
-		sort_simple(&stack_a, &stack_b);
+		sort_simple(&current_context);
 	else if (sort == 2)
-		sort_medium(&stack_a, &stack_b);
+		sort_medium(&current_context);
 	else if (sort == 3)
-		sort_complex(&stack_a, &stack_b);
+		sort_complex(&current_context);
 	else
-		sort_adaptive(&stack_a, &stack_b, compute_disorder(stack_a));
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+		sort_adaptive(&current_context);
+	free_stack(&current_context.stack_a);
+	free_stack(&current_context.stack_b);
 	return (0);
 }

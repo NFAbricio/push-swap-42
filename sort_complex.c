@@ -6,47 +6,47 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 22:33:07 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/19 07:15:54 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/24 07:10:02 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int  get_max_bits(t_node **a)
+static int  get_max_bits(t_node *a)
 {
     int max;
     int bits;
 
-    max = get_stack_size(*a);
+    max = get_stack_size(a);
     bits = 0;
     while((max >> bits) != 0)
         bits++;
     return(bits);
 }
 
-void    sort_complex(t_node **a, t_node **b)
+void    sort_complex(t_current_context *context)
 {
     int size;
     int bits;
     int bit;
     int i;
 
-    bits = get_max_bits(a);
-    size = get_stack_size(*a);
+    bits = get_max_bits(context->stack_a);
+    size = get_stack_size(context->stack_a);
     bit = 0;
     while(bit < bits)
     {
         i = 0;
         while(i < size)
         {
-            if(((*a)->index >> bit) && 1)
-                ra(a);
+            if(((context->stack_a)->index >> bit) & 1)
+                ra(context);
             else
-                pb(a, b);
+                pb(context);
            i++; 
         }
-        while(*b)
-            pa(a, b);
+        while(context->stack_b)
+            pa(context);
         bit++;
     }
 }

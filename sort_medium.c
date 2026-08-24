@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:30 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 22:33:12 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/24 07:11:15 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static int  ft_sqrt(int number)
         i++;
     return (i - 1);
 }
-static void verify_max_pos(t_node **b, int max_pos, int size, int max_idx)
+static void verify_max_pos(t_current_context *context, int max_pos, int size, int max_idx)
 {
     if (max_pos <= size / 2)
-        while ((*b)->index != max_idx)
-        rb(b);
+        while ((context->stack_b)->index != max_idx)
+        rb(context);
     else
-        while ((*b)->index != max_idx)
-        rrb(b);
+        while ((context->stack_b)->index != max_idx)
+        rrb(context);
 }
-static void push_back_to_a(t_node **a, t_node **b)
+static void push_back_to_a(t_current_context *context)
 {
     int max_idx;
     int size;
@@ -38,11 +38,11 @@ static void push_back_to_a(t_node **a, t_node **b)
     int i;
     t_node *tmp;
 
-    while (*b)
+    while (context->stack_b)
     {
-        size = get_stack_size(*b);
+        size = get_stack_size(context->stack_b);
         max_idx = -1;
-        tmp = *b;
+        tmp = context->stack_b;
         i = 0;
         while (tmp)
         {
@@ -54,34 +54,34 @@ static void push_back_to_a(t_node **a, t_node **b)
             tmp = tmp->next;
             i++;
         }
-        verify_max_pos(b, max_pos, size, max_idx);
-        pa(a, b);
+        verify_max_pos(context, max_pos, size, max_idx);
+        pa(context);
     }
 }
-void    sort_medium(t_node **a, t_node**b)
+void    sort_medium(t_current_context *context)
 {
     int chunk_size;
     int size;
     int pushed;
 
-    size = get_stack_size(*a);
+    size = get_stack_size(context->stack_a);
     chunk_size = ft_sqrt(size) * 1.5;
     pushed = 0;
-    while (*a)
+    while (context->stack_a)
     {
-        if ((*a)->index <= pushed)
+        if ((context->stack_a)->index <= pushed)
 		{
-			pb(a, b);
-			rb(b);
+			pb(context);
+			rb(context);
 			pushed++;
 		}
-		else if ((*a)->index <= pushed + chunk_size)
+		else if ((context->stack_a)->index <= pushed + chunk_size)
 		{
-			pb(a, b);
+			pb(context);
 			pushed++;
 		}
 		else
-			ra(a);
+			ra(context);
 	}
-	push_back_to_a(a, b);
+	push_back_to_a(context);
 }

@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:45 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 22:33:22 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/24 07:16:05 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,27 @@ static void swap(t_node **stack)
     *stack = second;
 }
 
-void    sa(t_node **a)
+void    sa(t_current_context *context)
 {
-    swap(a);
+    swap(&context->stack_a);
+    context->total_operations += 1;
+    context->count_each_operation->sa += 1;
     write(1, "sa\n", 3);
 }
 
-void    sb(t_node **b)
+void    sb(t_current_context *context)
 {
-    swap(b);
+    swap(&context->stack_b);
+    context->total_operations += 1;
+    context->count_each_operation->sb += 1;
     write(1, "sb\n", 3);
 }
 
-void ss(t_node **a, t_node **b)
+void ss(t_current_context *context)
 {
-    swap(a);
-    swap(b);
+    swap(&context->stack_a);
+    swap(&context->stack_b);
+    context->total_operations += 1;
+    context->count_each_operation->ss += 1;
     write(1, "ss\n", 3);
 }

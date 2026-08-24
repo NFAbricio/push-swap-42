@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:12 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/21 17:53:36 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/24 07:10:54 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,29 @@ typedef struct s_node
     struct  s_node  *next;
 } t_node;
 
+typedef struct t_count
+{
+int sa;
+int sb;
+int ss;
+int pa;
+int pb;
+int ra;
+int rb;
+int rr;
+int rra;
+int rrb;
+int rrr;
+} t_count_operations;
+
+typedef struct t_context
+{
+    t_node *stack_a;
+    t_node *stack_b;
+    t_count_operations *count_each_operation;
+    int total_operations;
+} t_current_context;
+
 void    ft_error(t_node **stack);
 long    ft_atol(const char *str);
 int     check_syntax(char *str);
@@ -33,21 +56,21 @@ double  compute_disorder(t_node *a);
 int     get_stack_size(t_node *stack);
 void    assign_index(t_node *a);
 void    free_stack(t_node **stack);
-void	sort_simple(t_node **a, t_node **b);
-void	sort_medium(t_node **a, t_node **b);
-void	sort_complex(t_node **a, t_node **b);
-void	sort_adaptive(t_node **a, t_node **b, double disorder);
-void    sa(t_node **a);
-void    sb(t_node **b);
-void    ss(t_node **a, t_node **b);
-void    pa(t_node **a, t_node **b);
-void    pb(t_node **a, t_node **b);
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	sort_simple(t_current_context *context);
+void	sort_medium(t_current_context *context);
+void	sort_complex(t_current_context *context);
+void	sort_adaptive(t_current_context *context);
+void    sa(t_current_context *context);
+void    sb(t_current_context *context);
+void    ss(t_current_context *context);
+void    pa(t_current_context *context);
+void    pb(t_current_context *context);
+void	ra(t_current_context *context);
+void	rb(t_current_context *context);
+void	rr(t_current_context *context);
+void	rra(t_current_context *context);
+void	rrb(t_current_context *context);
+void	rrr(t_current_context *context);
 int	get_stategy_selector(char **argv, t_node **stack);
 int str_cmp(const char *s1, const char *s2);
 #endif

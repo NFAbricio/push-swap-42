@@ -22,29 +22,29 @@ static int  get_min_index_pos(t_node *a, int *min_idx)
     }
     return (min_pos);
 }
-void    sort_simple(t_node **a, t_node **b)
+void    sort_simple(t_current_context *context)
 {
     int size;
     int min_pos;
     int min_idx;
 
-    size = get_stack_size(*a);
+    size = get_stack_size(context->stack_a);
     while (size > 0)
     {
-        min_pos = get_min_index_pos(*a, &min_idx);
+        min_pos = get_min_index_pos(context->stack_a, &min_idx);
         if (min_pos <= size / 2)
         {
-            while ((*a)->index != min_idx)
-                ra(a);
+            while ((context->stack_a)->index != min_idx)
+                ra(context);
         }
         else
         {
-            while ((*a)->index != min_idx)
-                rra(a);
+            while ((context->stack_a)->index != min_idx)
+                rra(context);
         }
-        pb(a, b);
+        pb(context);
         size--;
     }
-    while (*b)
-        pa(a, b);
+    while (context->stack_b)
+        pa(context);
 }
