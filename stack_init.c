@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:40 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/24 05:32:55 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/25 19:13:25 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long    ft_atol(const char *str)
 
 	res = 0;
 	sign = 1;
-	while(*str == ' ' || (*str >= 9 && *str <= 13))
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -30,7 +30,7 @@ long    ft_atol(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
-		str++; 
+		str++;
 	}
 	return (res * sign);
 }
@@ -40,7 +40,7 @@ static void append_node(t_node **stack, int value)
 	t_node  *last;
 
 	new_node = malloc(sizeof(t_node));
-	if(!new_node)
+	if (!new_node)
 		ft_error(stack);
 	new_node->value = value;
 	new_node->next = NULL;
@@ -55,30 +55,26 @@ static void append_node(t_node **stack, int value)
 	last->next = new_node;
 }
 
-void    init_stack_a(t_node **a, char **argv)
+void    init_stack_a(t_current_context *context, char **argv)
 {
 	long    n;
 	int 	i;
 
 	i = 1;
-	if (get_stategy_selector(argv, a))
+	if (context->strategy)
+		i++;
+	if (context->is_bench)
 		i++;
 	while (argv[i])
 	{
 		if (!check_syntax(argv[i]))
-		{
-			ft_error(a);
-		}
+			ft_error(&context->stack_a);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-		{
-			ft_error(a);
-		}
-		if (check_duplicates(*a, (int)n))
-		{
-			ft_error(a);
-		}
-		append_node(a, (int)n);
+			ft_error(&context->stack_a);
+		if (check_duplicates(context->stack_a, (int)n))
+			ft_error(&context->stack_a);
+		append_node(context->stack_a, (int)n);
 			i++;
 	}
 }

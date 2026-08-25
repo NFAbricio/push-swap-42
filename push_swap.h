@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:12 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/25 14:15:11 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/25 18:43:31 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct t_context
     t_node *stack_b;
     t_count_operations *count_each_operation;
     int total_operations;
+    int strategy;
+    int is_bench;
 } t_current_context;
 
 void    ft_error(t_node **stack);
@@ -71,10 +73,10 @@ void	rr(t_current_context *context);
 void	rra(t_current_context *context);
 void	rrb(t_current_context *context);
 void	rrr(t_current_context *context);
-int	get_stategy_selector(char **argv, t_node **stack);
+void	identify_flags(char **argv, t_current_context *context);
 int str_cmp(const char *s1, const char *s2);
 void    show_bench(t_current_context context);
 char	*ft_itoa(int n);
 void put_err(char *str);
-void putchar_err(char c)
+void putchar_err(char c);
 #endif

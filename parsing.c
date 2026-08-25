@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:07 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/22 15:35:46 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/25 19:02:41 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,25 @@ int	check_duplicates(t_node *a, int n)
 	return (0);
 }
 
-int	get_stategy_selector(char **argv, t_node **stack)
+void	identify_flags(char **argv, t_current_context *context)
 {
-	int			sort;
 	int			i;
 
-	sort = 0;
 	i = 1;
 	while (argv[i])
 	{
 		if (str_cmp(argv[i], "--simple") == 0)
-			sort = 1;
+			context->strategy = 1;
 		if (str_cmp(argv[i], "--medium") == 0)
-			sort = 2;
+			context->strategy = 2;
 		if (str_cmp(argv[i], "--complex") == 0)
-			sort = 3;
+			context->strategy = 3;
 		if (str_cmp(argv[i], "--adaptive") == 0)
-			sort = 4;
+			context->strategy = 4;
+		if (str_cmp(argv[i], "--bench"))
+			context->is_bench = 1;
 		i++;
 	}
-	if (sort == -1)
-		ft_error(stack);
-	return ((int)sort);
+	if (context->strategy == -1)
+		ft_error(&context->stack_a);
 }
