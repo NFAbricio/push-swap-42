@@ -6,18 +6,18 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:57:45 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/18 22:32:36 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/25 05:31:02 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-double  compute_disorder(t_node *a)
+float  compute_disorder(t_node *a)
 {
     t_node  *current;
     t_node  *runner;
-    double  mistakes;
-    double  total_pairs;
+    float  mistakes;
+    float  total_pairs;
 
     mistakes = 0;
     total_pairs = 0;

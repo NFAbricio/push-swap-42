@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 22:33:42 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/19 07:12:58 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/25 14:15:03 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ int str_cmp(const char *s1, const char *s2)
     while(s1[i] && (s1[i] == s2[i]))
         i++;
     return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+void put_err(char *str)
+{
+    int count;
+    
+    count = 0;
+    while(*(str + count))
+        count++;
+    write(2, str, count);
+}
+void putchar_err(char c)
+{
+    write(2, c, 1);
 }
