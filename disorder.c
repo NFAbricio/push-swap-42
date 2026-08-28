@@ -6,13 +6,13 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:57:45 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/25 05:31:02 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/28 05:50:49 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float  compute_disorder(t_node *a)
+float  compute_disorder(t_current_context *context)
 {
     t_node  *current;
     t_node  *runner;
@@ -21,7 +21,7 @@ float  compute_disorder(t_node *a)
 
     mistakes = 0;
     total_pairs = 0;
-    current = a;
+    current = context->stack_a;
     while(current)
     {
         runner = current->next;

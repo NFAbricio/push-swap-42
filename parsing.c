@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:07 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/25 19:02:41 by casampai         ###   ########.fr       */
+/*   Updated: 2026/08/28 06:31:14 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	identify_flags(char **argv, t_current_context *context)
 			context->strategy = 3;
 		if (str_cmp(argv[i], "--adaptive") == 0)
 			context->strategy = 4;
-		if (str_cmp(argv[i], "--bench"))
+		if (str_cmp(argv[i], "--bench") == 0)
 			context->is_bench = 1;
 		i++;
 	}

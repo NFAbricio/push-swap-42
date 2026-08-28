@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:30 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/24 07:11:15 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/27 16:47:40 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void    sort_medium(t_current_context *context)
 
     size = get_stack_size(context->stack_a);
     chunk_size = ft_sqrt(size) * 1.5;
+    context->complexity = "O(n√n)";
     pushed = 0;
     while (context->stack_a)
     {

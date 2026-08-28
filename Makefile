@@ -1,39 +1,49 @@
-NAME = push_swap
+NAME        = push_swap
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror -I libft -I includes
+RM          = rm -f
 
-SRCS = main.c \
-       disorder.c \
-       parsing.c \
-       push.c \
-       rev_rotate.c \
-       rotate.c \
-       sort_adaptive.c \
-       sort_complex.c \
-       sort_medium.c \
-       sort_simple.c \
-       sort_utils.c \
-       stack_init.c \
-       swap.c \
-       utils.c
+LIBFT_DIR   = libft
+LIBFT       = $(LIBFT_DIR)/libft.a
 
-OBJS = $(SRCS:.c=.o)
+SRCS        = main.c \
+              disorder.c \
+              parsing.c \
+              push.c \
+              rev_rotate.c \
+              rotate.c \
+              sort_adaptive.c \
+              sort_complex.c \
+              sort_medium.c \
+              sort_simple.c \
+              sort_utils.c \
+              stack_init.c \
+              swap.c \
+              utils.c \
+              bench.c \
+              sorts_basic.c
+
+OBJS        = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
+	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

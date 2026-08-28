@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 22:33:04 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/24 07:10:11 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/28 05:51:25 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    sort_adaptive(t_current_context *context)
 {
     double disorder;
 
-    disorder = compute_disorder(context->stack_a);
+    disorder = compute_disorder(context);
     if (disorder < 0.2)
         sort_simple(context);
     else if (disorder >= 0.2 && disorder < 0.5)

@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:37 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/19 07:19:18 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/27 17:02:55 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ int get_stack_size(t_node *stack)
     }
     return (size);
 }
-void    assign_index(t_node *a)
+void    assign_index(t_current_context context)
 {
     t_node  *ptr1;
     t_node  *ptr2;
     int index;
 
-    ptr1 = a;
+    ptr1 = context.stack_a;
     while (ptr1)
     {
         index = 0;
-        ptr2 = a;
+        ptr2 = context.stack_a;
         while (ptr2)
         {
             if (ptr1->value > ptr2->value)

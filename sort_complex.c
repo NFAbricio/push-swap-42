@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 22:33:07 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/24 07:10:02 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/08/27 16:47:13 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void    sort_complex(t_current_context *context)
 
     bits = get_max_bits(context->stack_a);
     size = get_stack_size(context->stack_a);
+    context->complexity = "O(n log n)";
     bit = 0;
     while(bit < bits)
     {
