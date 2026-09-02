@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:24 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/30 20:44:12 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 15:11:01 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ra(t_current_context *context)
 	rotate(&context->stack_a);
 	context->total_operations += 1;
 	context->count_each_operation->ra += 1;
-	ft_putendl_fd("ra", 2);
+	ft_putendl_fd("ra", 1);
 }
 
 void	rb(t_current_context *context)
@@ -41,7 +41,7 @@ void	rb(t_current_context *context)
 	rotate(&context->stack_b);
 	context->total_operations += 1;
 	context->count_each_operation->rb += 1;
-	ft_putendl_fd("rb", 2);
+	ft_putendl_fd("rb", 1);
 }
 
 void	rr(t_current_context *context)
@@ -50,5 +50,5 @@ void	rr(t_current_context *context)
 	rotate(&context->stack_b);
 	context->total_operations += 1;
 	context->count_each_operation->rr += 1;
-	ft_putendl_fd("rr", 2);
+	ft_putendl_fd("rr", 1);
 }

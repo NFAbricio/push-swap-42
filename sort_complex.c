@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 22:33:07 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/30 20:45:30 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 15:22:17 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	get_max_bits(t_node *a)
 	int	max;
 	int	bits;
 
-	max = get_stack_size(a);
+	max = get_stack_size(a) - 1;
 	bits = 0;
 	while ((max >> bits) != 0)
 		bits++;

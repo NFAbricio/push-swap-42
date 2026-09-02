@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:30 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/30 20:48:12 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 15:54:41 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	ft_sqrt(int number)
 	return (i - 1);
 }
 
-static void	verify_max_pos(t_current_context *context, int max_pos, int size, int max_idx)
+static void	verify_max_pos(t_current_context *context, int m_p, int s, int m_i)
 {
-	if (max_pos <= size / 2)
-		while ((context->stack_b)->index != max_idx)
+	if (m_p <= s / 2)
+		while ((context->stack_b)->index != m_i)
 			rb(context);
 	else
-		while ((context->stack_b)->index != max_idx)
+		while ((context->stack_b)->index != m_i)
 			rrb(context);
 }
 
