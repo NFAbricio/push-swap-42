@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:38:48 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/09/02 19:51:46 by casampai         ###   ########.fr       */
+/*   Updated: 2026/09/02 20:16:44 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	sort_simple(t_current_context *context)
 	int min_idx;
 
 	size = get_stack_size(context->stack_a);
+	context->complexity = "O(n²)";
 	while (size > 0)
 	{
 		min_pos = get_min_index_pos(context->stack_a, &min_idx);
