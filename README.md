@@ -143,5 +143,3 @@ No contexto do projeto, o uso da IA foi focado em apoio ao raciocínio e refino 
 Este projeto é uma implementação de algoritmo de ordenação para pilhas e foi pensado como exercício de lógica, eficiência e gerenciamento de memória em C.
 
 ---
-
-Se quiser, posso também criar uma versão mais detalhada do README em inglês, ou adaptar este arquivo com informações específicas da sua implementação e do desafio 42. 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:58:12 by casampai          #+#    #+#             */
-/*   Updated: 2026/08/30 20:38:04 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 19:20:01 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		check_duplicates(t_node *a, int n);
 void	init_stack_a(t_current_context *context, char **argv);
 float	compute_disorder(t_current_context *context);
 int		get_stack_size(t_node *stack);
-void	assign_index(t_current_context context);
+void	assign_index(t_current_context *context);
 void	identify_flags(char **argv, t_current_context *context);
 void	free_stack(t_node **stack);
 void	sort_simple(t_current_context *context);

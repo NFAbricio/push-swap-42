@@ -1,48 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 16:58:37 by casampai          #+#    #+#             */
-/*   Updated: 2026/09/02 19:19:51 by casampai         ###   ########.fr       */
+/*   Created: 2026/06/19 21:55:10 by casampai          #+#    #+#             */
+/*   Updated: 2026/06/22 17:38:27 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	get_stack_size(t_node *stack)
+int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	int		size;
+	t_list	*current_node;
 
 	size = 0;
-	while (stack)
+	current_node = lst;
+	while (current_node != NULL)
 	{
 		size++;
-		stack = stack->next;
+		current_node = current_node->next;
 	}
 	return (size);
-}
-
-void	assign_index(t_current_context *context)
-{
-	t_node	*ptr1;
-	t_node	*ptr2;
-	int		index;
-
-	ptr1 = context->stack_a;
-	while (ptr1)
-	{
-		index = 0;
-		ptr2 = context->stack_a;
-		while (ptr2)
-		{
-			if (ptr1->value > ptr2->value)
-				index++;
-			ptr2 = ptr2->next;
-		}
-		ptr1->index = index;
-		ptr1 = ptr1->next;
-	}
 }

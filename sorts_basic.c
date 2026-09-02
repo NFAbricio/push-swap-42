@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorts_basic.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
+/*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/28 06:36:42 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/30 21:17:04 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 19:41:29 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,23 @@ void	sort_five(t_current_context *context)
 	int	min_pos;
 
 	size = get_stack_size(context->stack_a);
-	// Passo 1: Jogar os menores para o B até sobrarem 3 no A
 	while (size > 3)
 	{
 		min_pos = get_min_position(&context->stack_a);
-		// Se o menor número está na primeira metade, gira para cima (ra)
 		if (min_pos <= size / 2)
 		{
 			while (min_pos-- > 0)
 				ra(context);
 		}
-		// Se está na segunda metade, gira para baixo (rra)
 		else
 		{
 			while (min_pos++ < size)
 				rra(context);
 		}
-		pb(context); // Empurra o menor atual para B
+		pb(context);
 		size--;
 	}
-	// Passo 2: Ordena os 3 que ficaram na pilha A
 	sort_three(context);
-	// Passo 3: Devolve os menores números para a pilha A, na ordem correta
 	while (context->stack_b)
 		pa(context);
 }
