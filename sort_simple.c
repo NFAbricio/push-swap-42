@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 // Calcula o numero maximo de bits necessarios para representar (size - 1)
 static int	get_max_bits(t_node *stack_a)
 {
@@ -14,6 +12,7 @@ static int	get_max_bits(t_node *stack_a)
 		max_bits++;
 	return (max_bits);
 }
+
 void	sort_simple(t_current_context *context)
 {
 	int	i;

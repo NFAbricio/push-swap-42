@@ -6,7 +6,7 @@
 /*   By: casampai, fnunes-d <casampai, fnunes-d@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 05:49:46 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/08/28 06:09:31 by casampai, f      ###   ########.fr       */
+/*   Updated: 2026/09/02 14:27:58 by casampai, f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	print_strategy(t_current_context *context)
 	ft_putchar_fd('\n', 2);
 }
 
-void	print_total_ops(t_current_context *context)
+
+static void	print_op(char *label, int val)
 {
-	ft_putstr_fd("[bench] total_ops:  ", 2);
-	ft_putnbr_fd(context->total_operations, 2);
-	ft_putchar_fd('\n', 2);
+	ft_putstr_fd(label, 2);
+	ft_putnbr_fd(val, 2);
 }
 
 void	print_each_ops_count(t_current_context *context)
@@ -69,30 +69,18 @@ void	print_each_ops_count(t_current_context *context)
 	ops = context->count_each_operation;
 	if (!ops)
 		return ;
-	ft_putstr_fd("[bench] sa: ", 2);
-	ft_putnbr_fd(ops->sa, 2);
-	ft_putstr_fd(" sb: ", 2);
-	ft_putnbr_fd(ops->sb, 2);
-	ft_putstr_fd(" ss: ", 2);
-	ft_putnbr_fd(ops->ss, 2);
-	ft_putstr_fd(" pa: ", 2);
-	ft_putnbr_fd(ops->pa, 2);
-	ft_putstr_fd(" pb: ", 2);
-	ft_putnbr_fd(ops->pb, 2);
+	print_op("[bench] sa: ", ops->sa);
+	print_op(" sb: ", ops->sb);
+	print_op(" ss: ", ops->ss);
+	print_op(" pa: ", ops->pa);
+	print_op(" pb: ", ops->pb);
 	ft_putchar_fd('\n', 2);
-
-	ft_putstr_fd("[bench] ra: ", 2);
-	ft_putnbr_fd(ops->ra, 2);
-	ft_putstr_fd(" rb: ", 2);
-	ft_putnbr_fd(ops->rb, 2);
-	ft_putstr_fd(" rr: ", 2);
-	ft_putnbr_fd(ops->rr, 2);
-	ft_putstr_fd(" rra: ", 2);
-	ft_putnbr_fd(ops->rra, 2);
-	ft_putstr_fd(" rrb: ", 2);
-	ft_putnbr_fd(ops->rrb, 2);
-	ft_putstr_fd(" rrr: ", 2);
-	ft_putnbr_fd(ops->rrr, 2);
+	print_op("[bench] ra: ", ops->ra);
+	print_op(" rb: ", ops->rb);
+	print_op(" rr: ", ops->rr);
+	print_op(" rra: ", ops->rra);
+	print_op(" rrb: ", ops->rrb);
+	print_op(" rrr: ", ops->rrr);
 	ft_putchar_fd('\n', 2);
 }
 
@@ -100,6 +88,8 @@ void	show_bench(t_current_context *context)
 {
 	print_disorder(context);
 	print_strategy(context);
-	print_total_ops(context);
+	ft_putstr_fd("[bench] total_ops:  ", 2);
+	ft_putnbr_fd(context->total_operations, 2);
+	ft_putchar_fd('\n', 2);
 	print_each_ops_count(context);
 }
