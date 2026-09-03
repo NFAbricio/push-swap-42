@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:59:38 by casampai          #+#    #+#             */
-/*   Updated: 2026/09/02 19:19:38 by casampai         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:48:35 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 	current_context.count_each_operation = &count;
 	identify_flags(argv, &current_context);
 	init_stack_a(&current_context, argv);
-
 	if (!current_context.stack_a)
 		return (0);
 	current_context.initial_disorder = compute_disorder(&current_context);

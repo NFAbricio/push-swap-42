@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 05:49:46 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/09/02 20:15:27 by casampai         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:48:46 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	print_strategy(t_current_context *context)
 		ft_putstr_fd("N/A", 2);
 	ft_putchar_fd('\n', 2);
 }
-
 
 static void	print_op(char *label, int val)
 {

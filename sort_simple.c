@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:38:48 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/09/02 20:16:44 by casampai         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:48:14 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	get_min_index_pos(t_node *a, int *min_idx)
 {
-	t_node  *tmp;
-	int min_pos;
-	int i;
+	t_node	*tmp;
+	int		min_pos;
+	int		i;
 
 	tmp = a;
 	*min_idx = tmp->index;
@@ -34,11 +34,12 @@ static int	get_min_index_pos(t_node *a, int *min_idx)
 	}
 	return (min_pos);
 }
+
 void	sort_simple(t_current_context *context)
 {
-	int size;
-	int min_pos;
-	int min_idx;
+	int	size;
+	int	min_pos;
+	int	min_idx;
 
 	size = get_stack_size(context->stack_a);
 	context->complexity = "O(n²)";

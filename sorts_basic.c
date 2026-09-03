@@ -6,7 +6,7 @@
 /*   By: casampai <casampai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/28 06:36:42 by casampai, f       #+#    #+#             */
-/*   Updated: 2026/09/02 19:41:29 by casampai         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:47:04 by casampai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	sort_three(t_current_context *context)
 		rra(context);
 }
 
-/* Retorna a posição (índice 0, 1, 2...) do menor valor na pilha */
-static int get_min_position(t_node **a)
+static int	get_min_position(t_node **a)
 {
 	t_node	*tmp;
 	int		min_value;
